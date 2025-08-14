@@ -115,12 +115,3 @@ jobs:
       with:
         name: MSIX Package
         path: ${{ env.Wap_Project_Directory }}\${{ env.App_Packages_Directory }}
-# Post Install .NET 6.0 cleanup
-    - name: Post Install .NET Core 6.0
-      run: |
-        echo "Cleaning up .NET 6.0"
-
-      # Post Install .NET Core 3.1 cleanup
-    - name: Post Install .NET Core 3.1
-      run: |
-        echo "Cleaning up .NET 3.1"
