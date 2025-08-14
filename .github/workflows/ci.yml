@@ -52,10 +52,18 @@ jobs:
       with:
         dotnet-version: '6.0.x'
         
-    - name: Install .NET Core 3.1 Runtime
+    - name: Install .NET Core 3.1 SDK
       run: |
-        choco install dotnetcore-runtime --version=3.1.32 -y
-        choco install dotnetcore-desktop-runtime --version=3.1.32 -y
+        curl -L -o dotnet-sdk-3.1.426-win-x64.exe https://download.visualstudio.microsoft.com/download/pr/7d75a0ee-d27b-41f0-a9ec-5b9e8b79ce07/5a11dddbed1f867a3e02aa527969b5cb/dotnet-sdk-3.1.426-win-x64.exe
+        start /wait dotnet-sdk-3.1.426-win-x64.exe /quiet /norestart
+        del dotnet-sdk-3.1.426-win-x64.exe
+    
+    - name: Install .NET Core 3.1 Desktop Runtime
+      run: |
+        curl -L -o windowsdesktop-runtime-3.1.32-win-x64.exe https://download.visualstudio.microsoft.com/download/pr/71bb63c1-c13a-43db-9c3a-b59cc49f32b5/cd7c5b13c741b44af7d2e01c3a10b29f/windowsdesktop-runtime-3.1.32-win-x64.exe
+        start /wait windowsdesktop-runtime-3.1.32-win-x64.exe /quiet /norestart
+        del windowsdesktop-runtime-3.1.32-win-x64.exe
+
 
     # Add  MsBuild to the PATH: https://github.com/microsoft/setup-msbuild
     - name: Setup MSBuild.exe
