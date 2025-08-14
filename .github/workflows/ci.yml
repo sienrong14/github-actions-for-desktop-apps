@@ -90,6 +90,7 @@ jobs:
         BuildMode: SideloadOnly
         Configuration: Debug
         TargetPlatform: ${{ matrix.targetplatform }}
+        AppxPackageSigningEnabled: false;
 
     # Remove the .pfx
     - name: Remove the .pfx
